@@ -11,6 +11,7 @@
 #import "MyReaderHeaderCollectionReusableView.h"
 #import "MyReaderFooterCollectionReusableView.h"
 #import "JRoomModel.h"
+#import "JRoomDetailedViewController.h"
 @interface JHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -222,6 +223,18 @@
 
 //长按手势
 - (IBAction)longPressGestureRecognized:(id)sender {
+    
+    UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
+    
+    UIGestureRecognizerState state = longPress.state;
+    
+    if (state == UIGestureRecognizerStateBegan) {
+        JRoomDetailedViewController *vc = [[JRoomDetailedViewController alloc] init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        
+    }
     
 }
 
