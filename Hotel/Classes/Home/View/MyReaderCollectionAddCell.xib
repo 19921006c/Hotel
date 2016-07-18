@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MyReaderCollectionAddCell">
+            <rect key="frame" x="0.0" y="0.0" width="111" height="33"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="111" height="33"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyF-9K-IJn">
+                        <rect key="frame" x="14" y="0.0" width="62" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Rll-PG-pZA"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" id="hT8-1G-OWr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyReader_01" translatesAutoresizingMaskIntoConstraints="NO" id="Akd-sS-hvp">
+                        <rect key="frame" x="90" y="13" width="7" height="7"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="psz-3D-ymH"/>
+                            <constraint firstAttribute="width" secondItem="Akd-sS-hvp" secondAttribute="height" multiplier="1:1" id="vMq-oQ-zTW"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zr2-mM-jEE" userLabel="backGroundLabel">
+                        <rect key="frame" x="0.0" y="0.0" width="111" height="33"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="FyF-9K-IJn" firstAttribute="trailing" secondItem="Akd-sS-hvp" secondAttribute="leading" constant="-14" id="A4s-Ew-Dqy"/>
+                <constraint firstAttribute="bottom" secondItem="Zr2-mM-jEE" secondAttribute="bottom" id="F5o-8T-R1a"/>
+                <constraint firstItem="FyF-9K-IJn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="FNI-6H-1ON"/>
+                <constraint firstItem="Akd-sS-hvp" firstAttribute="leading" secondItem="Zr2-mM-jEE" secondAttribute="trailing" id="HtC-4o-sEM"/>
+                <constraint firstItem="Akd-sS-hvp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ic7-LF-I4K"/>
+                <constraint firstItem="Zr2-mM-jEE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JVB-J5-waB"/>
+                <constraint firstItem="FyF-9K-IJn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KU5-lj-JUs"/>
+                <constraint firstItem="Zr2-mM-jEE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QNw-Uv-jhT"/>
+                <constraint firstAttribute="trailing" secondItem="Zr2-mM-jEE" secondAttribute="trailing" id="WRg-LP-9BW"/>
+                <constraint firstItem="FyF-9K-IJn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="ZdE-wf-zx3"/>
+                <constraint firstAttribute="trailing" secondItem="Akd-sS-hvp" secondAttribute="trailing" constant="14" id="hWx-mP-KDV"/>
+                <constraint firstAttribute="bottom" secondItem="FyF-9K-IJn" secondAttribute="bottom" id="ou8-oz-uRb"/>
+                <constraint firstAttribute="trailing" secondItem="FyF-9K-IJn" secondAttribute="trailing" id="sHG-Ex-5zb"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="FNI-6H-1ON"/>
+                    <exclude reference="sHG-Ex-5zb"/>
+                    <exclude reference="HtC-4o-sEM"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="backGroundLabel" destination="Zr2-mM-jEE" id="nCS-G7-9gQ"/>
+                <outlet property="label" destination="FyF-9K-IJn" id="AtH-BO-D4h"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="MyReader_01" width="7" height="7"/>
+    </resources>
+</document>
