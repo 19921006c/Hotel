@@ -28,6 +28,7 @@
 		42233F561D388E4800F85663 /* JRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42233F551D388E4800F85663 /* JRoomModel.m */; };
 		422917AE1D3A8C82003FE85D /* JRoomDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422917AC1D3A8C82003FE85D /* JRoomDetailedViewController.m */; };
 		422917AF1D3A8C82003FE85D /* JRoomDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422917AD1D3A8C82003FE85D /* JRoomDetailedViewController.xib */; };
+		E1E1DE2031BCEEADDEA18486 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22734FDDA6ED06CB496FF09C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22734FDDA6ED06CB496FF09C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42233EF31D387C4F00F85663 /* Hotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42233EF71D387C4F00F85663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42233EF91D387C4F00F85663 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +87,8 @@
 		422917AB1D3A8C82003FE85D /* JRoomDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRoomDetailedViewController.h; sourceTree = "<group>"; };
 		422917AC1D3A8C82003FE85D /* JRoomDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRoomDetailedViewController.m; sourceTree = "<group>"; };
 		422917AD1D3A8C82003FE85D /* JRoomDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRoomDetailedViewController.xib; sourceTree = "<group>"; };
+		9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E1DE2031BCEEADDEA18486 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BD4DF75F365D39EA6D51289 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */,
+				C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2E9BF3BB27F63BF6DFB4FB2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22734FDDA6ED06CB496FF09C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42233EEA1D387C4F00F85663 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +141,8 @@
 				42233F0F1D387C4F00F85663 /* HotelTests */,
 				42233F1A1D387C4F00F85663 /* HotelUITests */,
 				42233EF41D387C4F00F85663 /* Products */,
+				1BD4DF75F365D39EA6D51289 /* Pods */,
+				2E9BF3BB27F63BF6DFB4FB2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,9 +323,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42233F201D387C4F00F85663 /* Build configuration list for PBXNativeTarget "Hotel" */;
 			buildPhases = (
+				A7C7EC5DEF059D10AF78A36A /* Check Pods Manifest.lock */,
 				42233EEF1D387C4F00F85663 /* Sources */,
 				42233EF01D387C4F00F85663 /* Frameworks */,
 				42233EF11D387C4F00F85663 /* Resources */,
+				CE033714A5FE4D29B05008E2 /* Embed Pods Frameworks */,
+				337A8304CF603857F18BF057 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -422,6 +449,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		337A8304CF603857F18BF057 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C7EC5DEF059D10AF78A36A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE033714A5FE4D29B05008E2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42233EEF1D387C4F00F85663 /* Sources */ = {
@@ -569,6 +644,7 @@
 		};
 		42233F211D387C4F00F85663 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hotel/Info.plist;
@@ -581,6 +657,7 @@
 		};
 		42233F221D387C4F00F85663 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hotel/Info.plist;

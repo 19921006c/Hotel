@@ -1,0 +1,108 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DTCoreText (1.6.17):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.10)
+  - DTFoundation/DTAnimatedGIF (1.7.10)
+  - DTFoundation/DTHTMLParser (1.7.10):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.10):
+    - DTFoundation/Core
+  - MRProgress/ActivityIndicator (0.8.2):
+    - MRProgress/Stopable
+  - MRProgress/AFNetworking (0.8.2):
+    - MRProgress/AFNetworking/ActivityIndicator (= 0.8.2)
+    - MRProgress/AFNetworking/Base (= 0.8.2)
+    - MRProgress/AFNetworking/Circular (= 0.8.2)
+    - MRProgress/AFNetworking/NavigationBarProgress (= 0.8.2)
+    - MRProgress/AFNetworking/Overlay (= 0.8.2)
+    - MRProgress/AFNetworking/ProgressBaseClass (= 0.8.2)
+  - MRProgress/AFNetworking/ActivityIndicator (0.8.2):
+    - MRProgress/ActivityIndicator
+    - MRProgress/AFNetworking/Base
+  - MRProgress/AFNetworking/Base (0.8.2):
+    - AFNetworking (~> 2.5.2)
+    - AFNetworking/UIKit
+    - MRProgress/MethodCopier
+  - MRProgress/AFNetworking/Circular (0.8.2):
+    - MRProgress/AFNetworking/ProgressBaseClass
+  - MRProgress/AFNetworking/NavigationBarProgress (0.8.2):
+    - MRProgress/AFNetworking/ProgressBaseClass
+  - MRProgress/AFNetworking/Overlay (0.8.2):
+    - MRProgress/AFNetworking/ActivityIndicator
+    - MRProgress/AFNetworking/Base
+    - MRProgress/AFNetworking/Circular
+    - MRProgress/Overlay
+  - MRProgress/AFNetworking/ProgressBaseClass (0.8.2):
+    - MRProgress/AFNetworking/Base
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Blur (0.8.2):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.2):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.2)
+  - MRProgress/Icons (0.8.2)
+  - MRProgress/MethodCopier (0.8.2)
+  - MRProgress/Overlay (0.8.2):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.2)
+  - MRProgress/Stopable (0.8.2):
+    - MRProgress/Helper
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - TCBlobDownload (2.1.1)
+  - UMengSocialCOM (5.2.1)
+  - YYKit (1.0.7):
+    - YYKit/no-arc (= 1.0.7)
+  - YYKit/no-arc (1.0.7)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5.2)
+  - DTCoreText
+  - MRProgress/AFNetworking (~> 0.8.2)
+  - SDWebImage (~> 3.7.2)
+  - TCBlobDownload (~> 2.1.1)
+  - UMengSocialCOM (~> 5.2.1)
+  - YYKit (~> 1.0.6)
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  DTCoreText: 3ea8bba23dd2141ba18adb227a7dd33a822df1c4
+  DTFoundation: 3b6b1b817d2a7fb02e7eaf2596c922a68145bd43
+  MRProgress: f4cfe862082418e8f542f077772283f425d6c699
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  TCBlobDownload: 8726f054cc00bb5f66a57bb0c99764842dfa5c9f
+  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
+  YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
+
+COCOAPODS: 0.39.0
