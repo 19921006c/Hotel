@@ -22,7 +22,7 @@
     JHomeViewController *vc = [[JHomeViewController alloc]init];
     
     self.tabBar.tintColor = [UIColor blueColor];
-    vc.tabBarItem.title = @"首页";
+    vc.tabBarItem.title = @"home";
     vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_service_normal"];
     vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_service_selected"];
     self.tabBar.backgroundColor = [UIColor redColor];

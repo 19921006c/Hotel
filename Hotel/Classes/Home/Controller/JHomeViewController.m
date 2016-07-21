@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"首页";
+    self.navigationItem.title = @"home";
     
     [self setNavigationBar];
     
@@ -149,24 +149,6 @@
         
         cell.label.text = [NSString stringWithFormat:@"%ld",model.roomNo];
     }
-//    //创建模型
-//    if (indexPath.section == 0) {
-////        model = self.selectedArray[indexPath.row];
-////        cell.label.text = model.name;
-////        cell.label.textColor = [UIColor colorWithHexString:@"#333333"];
-////        //固定的服务，样式
-////        //        FLOG(@"name = %@ type = %d", model.name,model.type);
-////        if (model.type == 2) {
-////            cell.label.textColor = [UIColor colorWithHexString:@"#999999"];
-////        }
-//        
-//    }else{
-//        MyReaderCollectionAddCell *cell = (MyReaderCollectionAddCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MyReaderCollectionAddCell" forIndexPath:indexPath];
-//        model = self.otherArray[indexPath.row];
-//        cell.label.text = model.name;
-//        
-//        return cell;
-//    }
     return cell;
 };
 
@@ -176,11 +158,8 @@
 {
     if (kind == UICollectionElementKindSectionHeader) {
         MyReaderHeaderCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MyReaderHeaderCollectionReusableView" forIndexPath:indexPath];
-        if (indexPath.section == 0) {
-            header.label.text = @"已租";
-        }else{
-            header.label.text = @"未出租";
-        }
+        
+        header.index = indexPath.section;
 
         header.backgroundColor = [UIColor whiteColor];
         return header;

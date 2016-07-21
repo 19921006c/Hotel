@@ -10,5 +10,8 @@
 
 @interface MyReaderHeaderCollectionReusableView : UICollectionReusableView
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
+/**
+ *  index = indexPath.section
+ */
+@property (nonatomic, assign) NSInteger index;
 @end

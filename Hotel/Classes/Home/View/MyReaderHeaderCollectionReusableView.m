@@ -11,6 +11,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLineImageViewHeight;
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation MyReaderHeaderCollectionReusableView
@@ -20,4 +22,14 @@
     self.topLineImageViewHeight.constant = 0.5;
 }
 
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
+    
+    if (index == 0) {
+        _label.text = @"Done";
+    }else{
+        _label.text = @"Todo";
+    }
+}
 @end
