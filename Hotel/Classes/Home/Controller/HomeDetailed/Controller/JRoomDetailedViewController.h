@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class JRoomModel;
+
 @interface JRoomDetailedViewController : UIViewController
+
+@property (nonatomic, strong) JRoomModel *roomModel;
 
 @end

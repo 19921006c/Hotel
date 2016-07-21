@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JRoomDetailedViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JNoteViewController">
             <connections>
-                <outlet property="tableView" destination="CYd-Y3-4aB" id="hkJ-FY-jM8"/>
+                <outlet property="tableView" destination="iMn-8m-cT1" id="2oI-rc-yGD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,23 +16,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-Y3-4aB">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iMn-8m-cT1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="KLU-yX-0Rf"/>
-                        <outlet property="delegate" destination="-1" id="9ZY-mQ-6FQ"/>
+                        <outlet property="dataSource" destination="-1" id="9F2-q3-fir"/>
+                        <outlet property="delegate" destination="-1" id="res-yF-cS0"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="CYd-Y3-4aB" secondAttribute="trailing" id="4X3-rx-las"/>
-                <constraint firstItem="CYd-Y3-4aB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Yh-ag-7dt"/>
-                <constraint firstAttribute="bottom" secondItem="CYd-Y3-4aB" secondAttribute="bottom" id="KQ4-AG-TcF"/>
-                <constraint firstItem="CYd-Y3-4aB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MNd-Cn-T4j"/>
+                <constraint firstItem="iMn-8m-cT1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GBK-Z3-bgy"/>
+                <constraint firstAttribute="bottom" secondItem="iMn-8m-cT1" secondAttribute="bottom" id="HPa-P8-dSj"/>
+                <constraint firstItem="iMn-8m-cT1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I2w-kv-AKS"/>
+                <constraint firstAttribute="trailing" secondItem="iMn-8m-cT1" secondAttribute="trailing" id="lWw-np-XvZ"/>
             </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		42233EF81D387C4F00F85663 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42233EF71D387C4F00F85663 /* main.m */; };
-		42233EFB1D387C4F00F85663 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42233EFA1D387C4F00F85663 /* AppDelegate.m */; };
 		42233F031D387C4F00F85663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42233F021D387C4F00F85663 /* Assets.xcassets */; };
 		42233F061D387C4F00F85663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42233F041D387C4F00F85663 /* LaunchScreen.storyboard */; };
 		42233F111D387C4F00F85663 /* HotelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42233F101D387C4F00F85663 /* HotelTests.m */; };
@@ -28,6 +27,13 @@
 		42233F561D388E4800F85663 /* JRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42233F551D388E4800F85663 /* JRoomModel.m */; };
 		422917AE1D3A8C82003FE85D /* JRoomDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422917AC1D3A8C82003FE85D /* JRoomDetailedViewController.m */; };
 		422917AF1D3A8C82003FE85D /* JRoomDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422917AD1D3A8C82003FE85D /* JRoomDetailedViewController.xib */; };
+		42402EC41D405B1B003BFEC3 /* JYYCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402EC31D405B1B003BFEC3 /* JYYCacheTool.m */; };
+		42402EC81D40748B003BFEC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402EC71D40748B003BFEC3 /* AppDelegate.m */; };
+		42402ECD1D40787F003BFEC3 /* JRoomDetailedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ECB1D40787F003BFEC3 /* JRoomDetailedCell.m */; };
+		42402ECE1D40787F003BFEC3 /* JRoomDetailedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42402ECC1D40787F003BFEC3 /* JRoomDetailedCell.xib */; };
+		42402ED11D409CA6003BFEC3 /* JRoomDetailedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ED01D409CA6003BFEC3 /* JRoomDetailedModel.m */; };
+		42402ED91D40B199003BFEC3 /* JNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ED71D40B199003BFEC3 /* JNoteViewController.m */; };
+		42402EDA1D40B199003BFEC3 /* JNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42402ED81D40B199003BFEC3 /* JNoteViewController.xib */; };
 		E1E1DE2031BCEEADDEA18486 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22734FDDA6ED06CB496FF09C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +58,6 @@
 		22734FDDA6ED06CB496FF09C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42233EF31D387C4F00F85663 /* Hotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42233EF71D387C4F00F85663 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		42233EF91D387C4F00F85663 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
-		42233EFA1D387C4F00F85663 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		42233F021D387C4F00F85663 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42233F051D387C4F00F85663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42233F071D387C4F00F85663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +91,19 @@
 		422917AB1D3A8C82003FE85D /* JRoomDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRoomDetailedViewController.h; sourceTree = "<group>"; };
 		422917AC1D3A8C82003FE85D /* JRoomDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRoomDetailedViewController.m; sourceTree = "<group>"; };
 		422917AD1D3A8C82003FE85D /* JRoomDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRoomDetailedViewController.xib; sourceTree = "<group>"; };
+		42402EC21D405B1B003BFEC3 /* JYYCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYYCacheTool.h; sourceTree = "<group>"; };
+		42402EC31D405B1B003BFEC3 /* JYYCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYYCacheTool.m; sourceTree = "<group>"; };
+		42402EC61D40748B003BFEC3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		42402EC71D40748B003BFEC3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		42402EC91D407553003BFEC3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42402ECA1D40787F003BFEC3 /* JRoomDetailedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRoomDetailedCell.h; path = Hotel/Classes/Other/JRoomDetailedCell.h; sourceTree = SOURCE_ROOT; };
+		42402ECB1D40787F003BFEC3 /* JRoomDetailedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRoomDetailedCell.m; path = Hotel/Classes/Other/JRoomDetailedCell.m; sourceTree = SOURCE_ROOT; };
+		42402ECC1D40787F003BFEC3 /* JRoomDetailedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRoomDetailedCell.xib; path = Hotel/Classes/Other/JRoomDetailedCell.xib; sourceTree = SOURCE_ROOT; };
+		42402ECF1D409CA6003BFEC3 /* JRoomDetailedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRoomDetailedModel.h; path = Hotel/Classes/Other/JRoomDetailedModel.h; sourceTree = SOURCE_ROOT; };
+		42402ED01D409CA6003BFEC3 /* JRoomDetailedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRoomDetailedModel.m; path = Hotel/Classes/Other/JRoomDetailedModel.m; sourceTree = SOURCE_ROOT; };
+		42402ED61D40B199003BFEC3 /* JNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNoteViewController.h; sourceTree = "<group>"; };
+		42402ED71D40B199003BFEC3 /* JNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNoteViewController.m; sourceTree = "<group>"; };
+		42402ED81D40B199003BFEC3 /* JNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JNoteViewController.xib; sourceTree = "<group>"; };
 		9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,9 +214,11 @@
 		42233F291D387D7600F85663 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				42402ED21D40B10D003BFEC3 /* Note */,
+				42402EC51D40748B003BFEC3 /* Other */,
+				42402EC11D40583A003BFEC3 /* Tool */,
 				42233F2A1D387D7600F85663 /* Home */,
 				42233F2E1D387D7600F85663 /* Main */,
-				42233F2F1D387D7600F85663 /* Other */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -264,15 +283,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		42233F2F1D387D7600F85663 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				42233EF91D387C4F00F85663 /* AppDelegate.h */,
-				42233EFA1D387C4F00F85663 /* AppDelegate.m */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		422917A31D3A8C1C003FE85D /* RoomDetailed */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +308,8 @@
 		422917A51D3A8C1C003FE85D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42402ECF1D409CA6003BFEC3 /* JRoomDetailedModel.h */,
+				42402ED01D409CA6003BFEC3 /* JRoomDetailedModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +322,62 @@
 			sourceTree = "<group>";
 		};
 		422917A71D3A8C1C003FE85D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42402ECA1D40787F003BFEC3 /* JRoomDetailedCell.h */,
+				42402ECB1D40787F003BFEC3 /* JRoomDetailedCell.m */,
+				42402ECC1D40787F003BFEC3 /* JRoomDetailedCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42402EC11D40583A003BFEC3 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				42402EC21D405B1B003BFEC3 /* JYYCacheTool.h */,
+				42402EC31D405B1B003BFEC3 /* JYYCacheTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		42402EC51D40748B003BFEC3 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				42402EC61D40748B003BFEC3 /* AppDelegate.h */,
+				42402EC71D40748B003BFEC3 /* AppDelegate.m */,
+				42402EC91D407553003BFEC3 /* PrefixHeader.pch */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		42402ED21D40B10D003BFEC3 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				42402ED31D40B10D003BFEC3 /* Controller */,
+				42402ED41D40B10D003BFEC3 /* Model */,
+				42402ED51D40B10D003BFEC3 /* View */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		42402ED31D40B10D003BFEC3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42402ED61D40B199003BFEC3 /* JNoteViewController.h */,
+				42402ED71D40B199003BFEC3 /* JNoteViewController.m */,
+				42402ED81D40B199003BFEC3 /* JNoteViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42402ED41D40B10D003BFEC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42402ED51D40B10D003BFEC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -427,6 +495,8 @@
 				42233F3F1D387F1B00F85663 /* JHomeViewController.xib in Resources */,
 				422917AF1D3A8C82003FE85D /* JRoomDetailedViewController.xib in Resources */,
 				42233F061D387C4F00F85663 /* LaunchScreen.storyboard in Resources */,
+				42402ECE1D40787F003BFEC3 /* JRoomDetailedCell.xib in Resources */,
+				42402EDA1D40B199003BFEC3 /* JNoteViewController.xib in Resources */,
 				42233F511D38840E00F85663 /* MyReaderFooterCollectionReusableView.xib in Resources */,
 				42233F031D387C4F00F85663 /* Assets.xcassets in Resources */,
 				42233F4F1D38840E00F85663 /* MyReaderCollectionCell.xib in Resources */,
@@ -504,14 +574,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				42233F3E1D387F1B00F85663 /* JHomeViewController.m in Sources */,
-				42233EFB1D387C4F00F85663 /* AppDelegate.m in Sources */,
 				42233F371D387DDC00F85663 /* JMainTabBarController.m in Sources */,
 				42233F501D38840E00F85663 /* MyReaderFooterCollectionReusableView.m in Sources */,
 				422917AE1D3A8C82003FE85D /* JRoomDetailedViewController.m in Sources */,
 				42233F3A1D387DF900F85663 /* JMainNavigationController.m in Sources */,
+				42402ED91D40B199003BFEC3 /* JNoteViewController.m in Sources */,
 				42233F561D388E4800F85663 /* JRoomModel.m in Sources */,
+				42402EC41D405B1B003BFEC3 /* JYYCacheTool.m in Sources */,
 				42233F521D38840E00F85663 /* MyReaderHeaderCollectionReusableView.m in Sources */,
+				42402EC81D40748B003BFEC3 /* AppDelegate.m in Sources */,
+				42402ED11D409CA6003BFEC3 /* JRoomDetailedModel.m in Sources */,
 				42233F4C1D38840E00F85663 /* MyReaderCollectionAddCell.m in Sources */,
+				42402ECD1D40787F003BFEC3 /* JRoomDetailedCell.m in Sources */,
 				42233F4E1D38840E00F85663 /* MyReaderCollectionCell.m in Sources */,
 				42233EF81D387C4F00F85663 /* main.m in Sources */,
 			);
@@ -647,6 +721,8 @@
 			baseConfigurationReference = 9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/J-File/Work/Hotel/Hotel/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = Hotel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -660,6 +736,8 @@
 			baseConfigurationReference = C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/J-File/Work/Hotel/Hotel/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = Hotel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

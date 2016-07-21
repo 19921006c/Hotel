@@ -19,6 +19,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     JMainTabBarController *vc = [[JMainTabBarController alloc] init];
     
     self.window.rootViewController = vc;

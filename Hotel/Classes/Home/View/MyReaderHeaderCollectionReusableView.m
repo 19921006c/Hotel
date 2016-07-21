@@ -27,9 +27,9 @@
     _index = index;
     
     if (index == 0) {
-        _label.text = @"Done";
+        _label.text = @"Done:   (long press go to the next)";
     }else{
-        _label.text = @"Todo";
+        _label.text = @"Todo:   (long press go to the next)";
     }
 }
 @end

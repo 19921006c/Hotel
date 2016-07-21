@@ -12,6 +12,7 @@
 #import "MyReaderFooterCollectionReusableView.h"
 #import "JRoomModel.h"
 #import "JRoomDetailedViewController.h"
+#import "JYYCacheTool.h"
 @interface JHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -25,6 +26,8 @@
  *  没有定制的服务
  */
 @property (strong , nonatomic) NSMutableArray *otherArray;
+
+@property (nonatomic, strong) NSMutableArray *allArray;
 
 //固定的服务个数
 @property (nonatomic, assign)NSInteger setCount;
@@ -42,21 +45,35 @@
     
     [self setNavigationBar];
     
-    NSArray *roomNo = [NSArray arrayWithObjects:@"101", @"102", @"103", @"104", @"105", @"106", @"107", @"108", @"109", @"110", @"111", @"112", @"201", @"202", @"203", @"204", @"205", @"206", @"207", @"208", @"209", @"210", @"211", @"212", @"213",nil];
-//    NSArray *praise = [NSArray arrayWithObjects:@"", nil];
+    //数据处理
+    [self dataProcess];
+    
+    [self setCollectionViewAttributes];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataProcess) name:kRefreshHomeData object:nil];
+}
+
+- (void)dataProcess
+{
+    _allArray = [NSMutableArray arrayWithArray:[JYYCacheTool objectForKey:kJHomeViewControllerData]];
     
     _otherArray = [NSMutableArray array];
     _selectedArray = [NSMutableArray array];
     
-    for (int i = 0; i < roomNo.count; i ++) {
-        JRoomModel *model = [[JRoomModel alloc]init];
+    if (_allArray.count > 0) {//有数据
         
-        model.roomNo = [roomNo[i] integerValue];
-        model.roomId = [roomNo[i] integerValue];
-//        model.roomPrasie = [praise[i] integerValue];
-        [_otherArray addObject:model];
+        for (JRoomModel *model in _allArray) {//遍历
+            
+            if (model.selectedType == SelectedTypeYes) {
+                [_selectedArray addObject:model];
+            }else{
+                [_otherArray addObject:model];
+            }
+        }
+        
     }
-    [self setCollectionViewAttributes];
+    
+    [self.collectionView reloadData];
 }
 
 - (void)setNavigationBar{
@@ -64,13 +81,13 @@
 }
 
 - (void)addAction{
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"输入内容" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"input" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
     _textField = [alertView textFieldAtIndex:0];
     
-    _textField.placeholder = @"请输入内容";
+    _textField.placeholder = @"Please input";
     
     [alertView show];
 }
@@ -79,26 +96,55 @@
 {
     if (buttonIndex == alertView.firstOtherButtonIndex) {
 
+        if ([_textField.text isEqualToString:@"鑫昊月"]) {
+            NSArray *roomNo = [NSArray arrayWithObjects:@"101", @"102", @"103", @"104", @"105", @"106", @"107", @"108", @"109", @"110", @"111", @"112", @"201", @"202", @"203", @"204", @"205", @"206", @"207", @"208", @"209", @"210", @"211", @"212", @"213",nil];
+            
+            for (int i = 0; i < roomNo.count; i ++) {
+                JRoomModel *model = [[JRoomModel alloc]init];
+                
+                model.roomName = [NSString stringWithFormat:@"%@",roomNo[i]];
+                model.roomId = i;
+                model.selectedType = SelectedTypeNone;
+                
+                [_allArray addObject:model];
+            }
+            
+            [_otherArray addObjectsFromArray:_allArray];
+            
+            [self.collectionView reloadData];
+            return;
+        }
+        
         JRoomModel *model = [[JRoomModel alloc]init];
         
-        model.roomNo = [_textField.text integerValue];
+        model.roomName = _textField.text;
         
         model.roomId = [_textField.text integerValue];
+        
+        model.selectedType = SelectedTypeNone;
+        
+        [_allArray addObject:model];
+        
+        //存数据
+        [self setDataProcess];
         
         [_otherArray addObject:model];
         
         [self.collectionView reloadData];
     }
 }
+- (void)setDataProcess
+{
+    [JYYCacheTool setObject:_allArray forKey:kJHomeViewControllerData];
+}
 
+// load collection view attributes
 - (void)setCollectionViewAttributes{
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"MyReaderCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"MyReaderCollectionCell"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MyReaderCollectionAddCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"MyReaderCollectionAddCell"];
-    //    self.selectCollectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_bg"]];
+
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    //
     [self.collectionView registerNib:[UINib nibWithNibName:@"MyReaderHeaderCollectionReusableView" bundle:[NSBundle mainBundle]]forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MyReaderHeaderCollectionReusableView"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MyReaderFooterCollectionReusableView" bundle:[NSBundle mainBundle]]forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"MyReaderFooterCollectionReusableView"];
     
@@ -141,13 +187,13 @@
         
         model = _selectedArray[indexPath.row];
         
-        cell.label.text = [NSString stringWithFormat:@"%ld",model.roomNo];
+        cell.label.text = model.roomName;
     }else{
         
         
         model = _otherArray[indexPath.row];
         
-        cell.label.text = [NSString stringWithFormat:@"%ld",model.roomNo];
+        cell.label.text = model.roomName;
     }
     return cell;
 };
@@ -174,41 +220,62 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    for (int i = 0; i < self.setCount; i ++) {
-        if (indexPath.row == i && indexPath.section == 0) {
-            return;
-        }
-    }
+    NSLog(@"indexPath.row == %ld",indexPath.row);
     if (indexPath.section == 0) {
+        JRoomModel *roomModel = _selectedArray[indexPath.row];
+        
+        roomModel.selectedType = SelectedTypeNone;
+        
         [self.otherArray insertObject:[self.selectedArray objectAtIndex:indexPath.row] atIndex:0];
+        
+        
         [self.selectedArray removeObjectAtIndex:indexPath.row];
         NSIndexPath *fromIndexPath = [NSIndexPath indexPathForItem:indexPath.row inSection:0];
         NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
         [collectionView moveItemAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
         [collectionView reloadItemsAtIndexPaths:@[toIndexPath]];
     }else{
+        JRoomModel *roomModel = _otherArray[indexPath.row];
+        
+        roomModel.selectedType = SelectedTypeYes;
+        
         [self.selectedArray addObject:[self.otherArray objectAtIndex:indexPath.row]];
         [self.otherArray removeObjectAtIndex:indexPath.row];
+        
+        
         NSIndexPath *fromIndexPath = [NSIndexPath indexPathForItem:indexPath.row inSection:1];
         NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:self.selectedArray.count - 1 inSection:0];
         [collectionView moveItemAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
         [collectionView reloadItemsAtIndexPaths:@[toIndexPath]];
     }
     
-    if (self.otherArray.count >= 50 || self.selectedArray.count >= 30) {
-        [collectionView reloadData];
-    }
+    [self setDataProcess];
 }
 
 //长按手势
-- (IBAction)longPressGestureRecognized:(id)sender {
+- (void)longPressGestureRecognized:(id)sender {
     
     UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
     
     UIGestureRecognizerState state = longPress.state;
     
+    CGPoint location = [longPress locationInView:self.collectionView];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:location];
+    
+    JRoomModel *roomModel = [[JRoomModel alloc] init];
+    
+    if (indexPath.section == 0) {
+        roomModel = _selectedArray[indexPath.row];
+    }else{
+        roomModel = _otherArray[indexPath.row];
+    }
+    
     if (state == UIGestureRecognizerStateBegan) {
+        
         JRoomDetailedViewController *vc = [[JRoomDetailedViewController alloc] init];
+        
+        vc.roomModel = roomModel;
         
         [self.navigationController pushViewController:vc animated:YES];
     }else{

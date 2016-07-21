@@ -8,11 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JRoomModel : NSObject
+typedef enum : NSUInteger {
+    SelectedTypeYes = 1,
+    SelectedTypeNone = 2,
+} SelectedType;
 
-@property (nonatomic, assign) NSInteger roomNo;
+@interface JRoomModel : NSObject<NSCoding>
 
-@property (nonatomic, assign) NSInteger roomPrasie;
+@property (nonatomic, copy) NSString *roomName;
 
 @property (nonatomic, assign) NSInteger roomId;
+
+/**
+ *     :   done
+ *  2   :   todo
+ */
+@property (nonatomic, assign) SelectedType selectedType;
 @end

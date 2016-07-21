@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="JRoomDetailedCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBY-bf-a47">
+                        <rect key="frame" x="20" y="10" width="290" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Tv-YC-7Pg">
+                        <rect key="frame" x="20" y="42.5" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="XVX-s8-81t"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8Tv-YC-7Pg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JOG-Pf-J69"/>
+                    <constraint firstAttribute="trailing" secondItem="hBY-bf-a47" secondAttribute="trailing" constant="10" id="KS0-qy-Hi5"/>
+                    <constraint firstItem="hBY-bf-a47" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gGA-CJ-DwH"/>
+                    <constraint firstAttribute="bottom" secondItem="8Tv-YC-7Pg" secondAttribute="bottom" id="iFq-tn-yNb"/>
+                    <constraint firstAttribute="trailing" secondItem="8Tv-YC-7Pg" secondAttribute="trailing" id="mjd-FQ-BdN"/>
+                    <constraint firstItem="hBY-bf-a47" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uJz-oQ-5kU"/>
+                    <constraint firstItem="hBY-bf-a47" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="v8Y-vE-EhK"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="v8Y-vE-EhK"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="hBY-bf-a47" id="Fep-0w-J0E"/>
+                <outlet property="lineImageView" destination="8Tv-YC-7Pg" id="1a6-H0-Ih3"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
