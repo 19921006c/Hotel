@@ -107,6 +107,8 @@
                 model.selectedType = SelectedTypeNone;
                 
                 [_allArray addObject:model];
+                
+                [self setDataProcess];
             }
             
             [_otherArray addObjectsFromArray:_allArray];

@@ -17,7 +17,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, copy) NSString *roomName;
 
-@property (nonatomic, assign) NSString *roomId;
+@property (nonatomic, copy) NSString *roomId;
 
 /**
  *     :   done
