@@ -23,6 +23,7 @@
 {
     [aCoder encodeObject:_content forKey:@"content"];
     [aCoder encodeFloat:_contentHeiht forKey:@"contentHeiht"];
+    [aCoder encodeObject:_id forKey:@"id"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -30,6 +31,7 @@
     if (self = [super init]) {
         _content = [aDecoder decodeObjectForKey:@"content"];
         _contentHeiht = [aDecoder decodeFloatForKey:@"contentHeiht"];
+        _id = [aDecoder decodeObjectForKey:@"id"];
     }
     
     return self;

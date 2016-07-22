@@ -12,6 +12,8 @@
 
 @property (nonatomic, copy) NSString *content;
 
+@property (nonatomic, assign) NSString *id;
+
 @property (nonatomic, assign) CGFloat contentHeiht;
 
 @end

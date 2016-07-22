@@ -103,7 +103,7 @@
                 JRoomModel *model = [[JRoomModel alloc]init];
                 
                 model.roomName = [NSString stringWithFormat:@"%@",roomNo[i]];
-                model.roomId = i;
+                model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
                 model.selectedType = SelectedTypeNone;
                 
                 [_allArray addObject:model];
@@ -119,7 +119,7 @@
         
         model.roomName = _textField.text;
         
-        model.roomId = [_textField.text integerValue];
+        model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
         
         model.selectedType = SelectedTypeNone;
         

@@ -31,6 +31,8 @@ static NSString *cacheName = @"JHomePageData";
     YYCache *cache = [[YYCache alloc] initWithName:cacheName];
     
     [cache removeObjectForKey:key];
+    
+
 }
 
 @end

@@ -81,18 +81,15 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - TCBlobDownload (2.1.1)
-  - UMengSocialCOM (5.2.1)
   - YYKit (1.0.7):
     - YYKit/no-arc (= 1.0.7)
   - YYKit/no-arc (1.0.7)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.2)
   - DTCoreText
   - MRProgress/AFNetworking (~> 0.8.2)
   - SDWebImage (~> 3.7.2)
   - TCBlobDownload (~> 2.1.1)
-  - UMengSocialCOM (~> 5.2.1)
   - YYKit (~> 1.0.6)
 
 SPEC CHECKSUMS:
@@ -102,7 +99,6 @@ SPEC CHECKSUMS:
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   TCBlobDownload: 8726f054cc00bb5f66a57bb0c99764842dfa5c9f
-  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
 COCOAPODS: 0.39.0

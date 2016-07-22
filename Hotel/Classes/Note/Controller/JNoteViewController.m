@@ -11,6 +11,8 @@
 #import "JRoomDetailedCell.h"
 #import "JYYCacheTool.h"
 #import "JRoomDetailedModel.h"
+#import "JRoomDetailedViewController.h"
+#import "JRoomModel.h"
 @interface JNoteViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,16 +32,18 @@
     
     _allArray = [NSMutableArray arrayWithArray:[JYYCacheTool objectForKey:kNoteData]];
     
-    if (!_allArray){//没有数据
+    if (_allArray.count == 0){//没有数据
         _allArray = [NSMutableArray array];
         
         JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
         model.content = @"delete all home data";
+        model.id = [NSString stringWithFormat:@"2000%@",model.content];
         [_allArray addObject:model];
         
         JRoomDetailedModel *model2 = [[JRoomDetailedModel alloc]init];
         
         model2.content = @"delete all note data";
+        model2.id = [NSString stringWithFormat:@"2000%@",model2.content];
         [_allArray addObject:model2];
     }
     
@@ -47,6 +51,43 @@
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_bg"]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightDonw)];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGestureRecognized:)];
+    
+    [self.tableView addGestureRecognizer:longPress];
+    
+}
+
+//长按手势
+- (void)longPressGestureRecognized:(id)sender {
+    
+    UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
+    
+    UIGestureRecognizerState state = longPress.state;
+    
+    CGPoint location = [longPress locationInView:self.tableView];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+    if (indexPath.section == 0) return;
+    
+    JRoomDetailedModel *detailedModel = self.allArray[indexPath.row + 2];
+    
+    JRoomModel *roomModel = [[JRoomModel alloc] init];
+    
+    roomModel.roomName = detailedModel.content;
+    roomModel.roomId = detailedModel.id;
+    
+    if (state == UIGestureRecognizerStateBegan) {
+        
+        JRoomDetailedViewController *vc = [[JRoomDetailedViewController alloc] init];
+        
+        vc.roomModel = roomModel;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        
+    }
     
 }
 
@@ -78,6 +119,7 @@
             
             model.content = _textField.text;
             
+            model.id = [NSString stringWithFormat:@"2000%@",model.content];
             [_allArray addObject:model];
             //存数据
             [self setObjectAndReload];
