@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JNoteViewController">
             <connections>
-                <outlet property="tableView" destination="iMn-8m-cT1" id="2oI-rc-yGD"/>
+                <outlet property="searchBar" destination="CVO-Oq-bH5" id="SgN-B5-Ygx"/>
+                <outlet property="searchDisplayController" destination="NPF-gs-ajh" id="QLO-iE-9dZ"/>
+                <outlet property="tableView" destination="JkO-7s-EKs" id="ko7-2S-s5A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,23 +18,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iMn-8m-cT1">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="CVO-Oq-bH5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="GnQ-dk-Vbo"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="aEI-2c-0HJ"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JkO-7s-EKs">
+                    <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="9F2-q3-fir"/>
-                        <outlet property="delegate" destination="-1" id="res-yF-cS0"/>
+                        <outlet property="dataSource" destination="-1" id="fCG-Tm-Lbl"/>
+                        <outlet property="delegate" destination="-1" id="x8S-NU-mpk"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iMn-8m-cT1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GBK-Z3-bgy"/>
-                <constraint firstAttribute="bottom" secondItem="iMn-8m-cT1" secondAttribute="bottom" id="HPa-P8-dSj"/>
-                <constraint firstItem="iMn-8m-cT1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I2w-kv-AKS"/>
-                <constraint firstAttribute="trailing" secondItem="iMn-8m-cT1" secondAttribute="trailing" id="lWw-np-XvZ"/>
+                <constraint firstAttribute="trailing" secondItem="JkO-7s-EKs" secondAttribute="trailing" id="0o5-fN-eOs"/>
+                <constraint firstItem="CVO-Oq-bH5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GwQ-D3-yU6"/>
+                <constraint firstItem="CVO-Oq-bH5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XQ0-kK-IzC"/>
+                <constraint firstAttribute="bottom" secondItem="JkO-7s-EKs" secondAttribute="bottom" id="Xuj-cF-hwI"/>
+                <constraint firstAttribute="trailing" secondItem="CVO-Oq-bH5" secondAttribute="trailing" id="Z7k-eB-Yhj"/>
+                <constraint firstItem="JkO-7s-EKs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dKa-Ay-0al"/>
+                <constraint firstItem="JkO-7s-EKs" firstAttribute="top" secondItem="CVO-Oq-bH5" secondAttribute="bottom" id="lfL-y8-y2o"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <searchDisplayController id="NPF-gs-ajh"/>
     </objects>
 </document>

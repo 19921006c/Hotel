@@ -13,7 +13,7 @@
 #import "JRoomDetailedModel.h"
 #import "JRoomDetailedViewController.h"
 #import "JRoomModel.h"
-@interface JNoteViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+@interface JNoteViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -23,9 +23,19 @@
 
 @property (nonatomic, strong) JRoomDetailedModel *model;
 
+@property (nonatomic, strong) NSMutableArray *searchArr;
+
 @end
 
 @implementation JNoteViewController
+
+- (NSMutableArray *)searchArr
+{
+    if (!_searchArr) {
+        _searchArr = [NSMutableArray array];
+    }
+    return _searchArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,12 +59,25 @@
     
     self.navigationItem.title = @"note";
     
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_bg"]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightDonw)];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGestureRecognized:)];
     
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    
+    //    self.searchView.delegate = self;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"home_bg"]]];
+    
     [self.tableView addGestureRecognizer:longPress];
+    
+    searchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
+    searchDisplayController.delegate = self;
+    
+    searchDisplayController.searchResultsDataSource = self;
+    // searchResultsDelegate 就是 UITableViewDelegate
+    searchDisplayController.searchResultsDelegate = self;
     
 }
 
@@ -139,37 +162,53 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 2;
+    if (tableView == self.tableView) {
+        if (section == 0) {
+            return 2;
+        }
+        
+        return _allArray.count - 2;
+    }else{
+        return self.searchArr.count;
     }
     
-    return _allArray.count - 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if (tableView == self.tableView) {
+        return 2;
+    }else{
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JRoomDetailedCell *cell = [JRoomDetailedCell cellWithTableView:tableView];
     
-    if (indexPath.row == 0) {
-        cell.index = 1;
+    if (tableView == self.tableView) {
+        if (indexPath.row == 0) {
+            cell.index = 1;
+        }else{
+            cell.index = 0;
+        }
+        
+        JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
+        
+        if (indexPath.section == 0) {
+            model = self.allArray[indexPath.row];
+            cell.contnent = model.content;
+        }else{
+            model = self.allArray[indexPath.row + 2];
+            cell.contnent = model.content;
+        }
     }else{
-        cell.index = 0;
+        JRoomDetailedModel *model = self.searchArr[indexPath.row];
+        
+        cell.contnent = model.content;
     }
     
-    JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
-    
-    if (indexPath.section == 0) {
-        model = self.allArray[indexPath.row];
-        cell.contnent = model.content;
-    }else{
-        model = self.allArray[indexPath.row + 2];
-        cell.contnent = model.content;
-    }
     
     
     return cell;
@@ -177,12 +216,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.0001;
+    return 10.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.0;
+    return 0.00001;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -246,5 +285,57 @@
     [JYYCacheTool setObject:_allArray forKey:kNoteData];
     
     [self.tableView reloadData];
+}
+
+#pragma mark - UISearch bar delegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    [self -> searchBar setShowsCancelButton:YES animated:YES];
+    [searchDisplayController setActive:YES animated:YES];
+    return YES;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self.searchArr removeAllObjects];
+    
+    for (JRoomDetailedModel *model in self.allArray) {
+        
+            if ([model.content rangeOfString:searchText].location != NSNotFound) {
+                
+                [self.searchArr addObject:model];
+            }
+        
+    }
+    [self.searchDisplayController.searchResultsTableView reloadData];
+    
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    return YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self -> searchBar.text = @"";
+    //    [[RealtimeSearchUtil currentUtil] realtimeSearchStop];
+    [self -> searchBar resignFirstResponder];
+    [self -> searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView
+{
+    searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)dealloc{
+    searchBar.delegate = nil;
 }
 @end

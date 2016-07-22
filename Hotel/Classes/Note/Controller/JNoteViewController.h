@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JNoteViewController : UIViewController
+@interface JNoteViewController : UIViewController{
+
+    __weak IBOutlet UISearchBar *searchBar;
+    
+    IBOutlet UISearchDisplayController *searchDisplayController;
+}
 
 @end
