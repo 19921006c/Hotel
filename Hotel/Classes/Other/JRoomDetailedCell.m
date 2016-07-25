@@ -26,6 +26,7 @@ static NSString *const identifier = @"JRoomDetailedCell";
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return cell;
@@ -36,17 +37,6 @@ static NSString *const identifier = @"JRoomDetailedCell";
     _contnent = contnent;
     
     _contentLabel.text = contnent;
-}
-
-- (void)setIndex:(NSInteger)index
-{
-    _index = index;
-    
-    if (index == 1) {
-        _lineImageView.hidden = NO;
-    }else{
-        _lineImageView.hidden = YES;
-    }
 }
 
 @end

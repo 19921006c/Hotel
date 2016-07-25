@@ -61,7 +61,7 @@
     for (int i = 0; i < allArray.count; i ++) {
         JRoomModel *model = allArray[i];
         
-        if (model.roomId == _roomModel.roomId) {
+        if ([model.roomId isEqualToString:_roomModel.roomId]) {
             [allArray removeObject:model];
         }
     }

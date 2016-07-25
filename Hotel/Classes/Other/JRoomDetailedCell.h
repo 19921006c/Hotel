@@ -14,5 +14,4 @@
 
 @property (nonatomic, copy) NSString *contnent;
 
-@property (nonatomic, assign) NSInteger index;
 @end

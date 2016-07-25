@@ -68,8 +68,6 @@
     //    self.searchView.delegate = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"home_bg"]]];
-    
     [self.tableView addGestureRecognizer:longPress];
     
     searchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
@@ -92,9 +90,9 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
     
-    if (indexPath.section == 0) return;
+    if (indexPath.row < 2) return;
     
-    JRoomDetailedModel *detailedModel = self.allArray[indexPath.row + 2];
+    JRoomDetailedModel *detailedModel = self.allArray[indexPath.row];
     
     JRoomModel *roomModel = [[JRoomModel alloc] init];
     
@@ -163,24 +161,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.tableView) {
-        if (section == 0) {
-            return 2;
-        }
-        
-        return _allArray.count - 2;
+        return _allArray.count;
     }else{
         return self.searchArr.count;
     }
     
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    if (tableView == self.tableView) {
-        return 2;
-    }else{
-        return 1;
-    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,21 +173,12 @@
     JRoomDetailedCell *cell = [JRoomDetailedCell cellWithTableView:tableView];
     
     if (tableView == self.tableView) {
-        if (indexPath.row == 0) {
-            cell.index = 1;
-        }else{
-            cell.index = 0;
-        }
         
         JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
         
-        if (indexPath.section == 0) {
-            model = self.allArray[indexPath.row];
-            cell.contnent = model.content;
-        }else{
-            model = self.allArray[indexPath.row + 2];
-            cell.contnent = model.content;
-        }
+        model = self.allArray[indexPath.row];
+        cell.contnent = model.content;
+        
     }else{
         JRoomDetailedModel *model = self.searchArr[indexPath.row];
         
@@ -214,19 +190,18 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 10.0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.00001;
+        
+    JRoomDetailedModel *detailedModel = _allArray[indexPath.row];
+    
+    return detailedModel.contentHeiht;
+    
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.row >= 2) {
         return UITableViewCellEditingStyleDelete;
     }else{
         return UITableViewCellEditingStyleNone;
@@ -237,7 +212,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_allArray removeObjectAtIndex:indexPath.row + 2];
+        [_allArray removeObjectAtIndex:indexPath.row];
         
         [self setObjectAndReload];
     }
@@ -245,10 +220,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    if (section == 0) {
+    if (row < 2) {
         if (row == 0) {
             [JYYCacheTool removeObjectForKey:kJHomeViewControllerData];
             
@@ -270,7 +244,7 @@
     
     _textField = [alertView textFieldAtIndex:0];
     
-    self.model = _allArray[indexPath.row + 2];
+    self.model = _allArray[indexPath.row];
     
     _textField.text = self.model.content;
     
