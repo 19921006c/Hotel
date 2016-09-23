@@ -32,8 +32,6 @@
 		42402ECD1D40787F003BFEC3 /* JRoomDetailedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ECB1D40787F003BFEC3 /* JRoomDetailedCell.m */; };
 		42402ECE1D40787F003BFEC3 /* JRoomDetailedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42402ECC1D40787F003BFEC3 /* JRoomDetailedCell.xib */; };
 		42402ED11D409CA6003BFEC3 /* JRoomDetailedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ED01D409CA6003BFEC3 /* JRoomDetailedModel.m */; };
-		42402ED91D40B199003BFEC3 /* JNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42402ED71D40B199003BFEC3 /* JNoteViewController.m */; };
-		42402EDA1D40B199003BFEC3 /* JNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42402ED81D40B199003BFEC3 /* JNoteViewController.xib */; };
 		E1E1DE2031BCEEADDEA18486 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22734FDDA6ED06CB496FF09C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -101,9 +99,6 @@
 		42402ECC1D40787F003BFEC3 /* JRoomDetailedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JRoomDetailedCell.xib; path = Hotel/Classes/Other/JRoomDetailedCell.xib; sourceTree = SOURCE_ROOT; };
 		42402ECF1D409CA6003BFEC3 /* JRoomDetailedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRoomDetailedModel.h; path = Hotel/Classes/Other/JRoomDetailedModel.h; sourceTree = SOURCE_ROOT; };
 		42402ED01D409CA6003BFEC3 /* JRoomDetailedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRoomDetailedModel.m; path = Hotel/Classes/Other/JRoomDetailedModel.m; sourceTree = SOURCE_ROOT; };
-		42402ED61D40B199003BFEC3 /* JNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNoteViewController.h; sourceTree = "<group>"; };
-		42402ED71D40B199003BFEC3 /* JNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNoteViewController.m; sourceTree = "<group>"; };
-		42402ED81D40B199003BFEC3 /* JNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JNoteViewController.xib; sourceTree = "<group>"; };
 		9FD3B95977FF15E0C1CFCC0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D5817030FBF778955C4A92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,7 +209,6 @@
 		42233F291D387D7600F85663 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42402ED21D40B10D003BFEC3 /* Note */,
 				42402EC51D40748B003BFEC3 /* Other */,
 				42402EC11D40583A003BFEC3 /* Tool */,
 				42233F2A1D387D7600F85663 /* Home */,
@@ -350,40 +344,6 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		42402ED21D40B10D003BFEC3 /* Note */ = {
-			isa = PBXGroup;
-			children = (
-				42402ED31D40B10D003BFEC3 /* Controller */,
-				42402ED41D40B10D003BFEC3 /* Model */,
-				42402ED51D40B10D003BFEC3 /* View */,
-			);
-			path = Note;
-			sourceTree = "<group>";
-		};
-		42402ED31D40B10D003BFEC3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				42402ED61D40B199003BFEC3 /* JNoteViewController.h */,
-				42402ED71D40B199003BFEC3 /* JNoteViewController.m */,
-				42402ED81D40B199003BFEC3 /* JNoteViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		42402ED41D40B10D003BFEC3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		42402ED51D40B10D003BFEC3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -497,7 +457,6 @@
 				422917AF1D3A8C82003FE85D /* JRoomDetailedViewController.xib in Resources */,
 				42233F061D387C4F00F85663 /* LaunchScreen.storyboard in Resources */,
 				42402ECE1D40787F003BFEC3 /* JRoomDetailedCell.xib in Resources */,
-				42402EDA1D40B199003BFEC3 /* JNoteViewController.xib in Resources */,
 				42233F511D38840E00F85663 /* MyReaderFooterCollectionReusableView.xib in Resources */,
 				42233F031D387C4F00F85663 /* Assets.xcassets in Resources */,
 				42233F4F1D38840E00F85663 /* MyReaderCollectionCell.xib in Resources */,
@@ -579,7 +538,6 @@
 				42233F501D38840E00F85663 /* MyReaderFooterCollectionReusableView.m in Sources */,
 				422917AE1D3A8C82003FE85D /* JRoomDetailedViewController.m in Sources */,
 				42233F3A1D387DF900F85663 /* JMainNavigationController.m in Sources */,
-				42402ED91D40B199003BFEC3 /* JNoteViewController.m in Sources */,
 				42233F561D388E4800F85663 /* JRoomModel.m in Sources */,
 				42402EC41D405B1B003BFEC3 /* JYYCacheTool.m in Sources */,
 				42233F521D38840E00F85663 /* MyReaderHeaderCollectionReusableView.m in Sources */,

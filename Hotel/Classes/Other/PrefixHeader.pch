@@ -10,7 +10,6 @@
 #define PrefixHeader_pch
 
 #define kJHomeViewControllerData @"kJHomeViewControllerData"
-#define kNoteData @"kNoteData"
 
 #define kRefreshHomeData @"kRefreshHomeData"
 

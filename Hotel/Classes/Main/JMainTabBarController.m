@@ -9,10 +9,8 @@
 #import "JMainTabBarController.h"
 #import "JMainNavigationController.h"
 #import "JHomeViewController.h"
-#import "JNoteViewController.h"
 @interface JMainTabBarController (){
     JHomeViewController *homeVc;
-    JNoteViewController *noteVc;
 }
 @end
 
@@ -22,10 +20,8 @@
     [super viewDidLoad];
     
     homeVc = [[JHomeViewController alloc]init];
-    noteVc = [[JNoteViewController alloc]init];
     
     [self addOneChildController:homeVc title:@"首页" norImage:@"tabbar_service_normal" selectedImage:@"tabbar_service_selected"];
-    [self addOneChildController:noteVc title:@"记事" norImage:@"tabbar_message_normal" selectedImage:@"tabbar_message_selected"];
 }
 
 - (void)addOneChildController:(UIViewController *)childVc title:(NSString *)title norImage:(NSString *)norImage selectedImage:(NSString *)selectedImage

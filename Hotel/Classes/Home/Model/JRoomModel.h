@@ -24,4 +24,6 @@ typedef enum : NSUInteger {
  *  2   :   todo
  */
 @property (nonatomic, assign) SelectedType selectedType;
+
+@property (nonatomic, strong) NSMutableArray *detailedModelArray;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "JMainTabBarController.h"
+#import "JMainNavigationController.h"
+#import "JHomeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,9 +22,9 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    JMainTabBarController *vc = [[JMainTabBarController alloc] init];
-    
-    self.window.rootViewController = vc;
+    JHomeViewController *vc = [[JHomeViewController alloc] init];
+    JMainNavigationController *nav = [[JMainNavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
     

@@ -77,10 +77,13 @@
 }
 
 - (void)setNavigationBar{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(leftDown)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(rightDown)];
+    
 }
 
-- (void)addAction{
+//添加
+- (void)leftDown{
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"输入内容" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -91,49 +94,63 @@
     
     [alertView show];
 }
+//删除
+- (void)rightDown{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"删除所有数据" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    
+    [alertView show];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == alertView.firstOtherButtonIndex) {
-
-        if ([_textField.text isEqualToString:@"鑫昊月"]) {
-            NSArray *roomNo = [NSArray arrayWithObjects:@"101", @"102", @"103", @"104", @"105", @"106", @"107", @"108", @"109", @"110", @"111", @"112", @"201", @"202", @"203", @"204", @"205", @"206", @"207", @"208", @"209", @"210", @"211", @"212", @"213",nil];
+    if ([alertView.title isEqualToString:@"输入内容"]) {
+        if (buttonIndex == alertView.firstOtherButtonIndex) {
             
-            for (int i = 0; i < roomNo.count; i ++) {
-                JRoomModel *model = [[JRoomModel alloc]init];
+            if ([_textField.text isEqualToString:@"鑫昊月"]) {
+                NSArray *roomNo = [NSArray arrayWithObjects:@"101", @"102", @"103", @"104", @"105", @"106", @"107", @"108", @"109", @"110", @"111", @"112", @"201", @"202", @"203", @"204", @"205", @"206", @"207", @"208", @"209", @"210", @"211", @"212", @"213",nil];
                 
-                model.roomName = [NSString stringWithFormat:@"%@",roomNo[i]];
-                model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
-                model.selectedType = SelectedTypeNone;
+                for (int i = 0; i < roomNo.count; i ++) {
+                    JRoomModel *model = [[JRoomModel alloc]init];
+                    
+                    model.roomName = [NSString stringWithFormat:@"%@",roomNo[i]];
+                    model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
+                    model.selectedType = SelectedTypeNone;
+                    
+                    [_allArray addObject:model];
+                    
+                    [self setDataProcess];
+                }
                 
-                [_allArray addObject:model];
+                [_otherArray addObjectsFromArray:_allArray];
                 
-                [self setDataProcess];
+                [self.collectionView reloadData];
+                return;
             }
             
-            [_otherArray addObjectsFromArray:_allArray];
+            JRoomModel *model = [[JRoomModel alloc]init];
+            
+            model.roomName = _textField.text;
+            
+            model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
+            
+            model.selectedType = SelectedTypeNone;
+            
+            [_allArray addObject:model];
+            
+            //存数据
+            [self setDataProcess];
+            
+            [_otherArray addObject:model];
             
             [self.collectionView reloadData];
-            return;
         }
+    }else{
+        [JYYCacheTool removeObjectForKey:kJHomeViewControllerData];
         
-        JRoomModel *model = [[JRoomModel alloc]init];
-        
-        model.roomName = _textField.text;
-        
-        model.roomId = [NSString stringWithFormat:@"1000%@",model.roomName];
-        
-        model.selectedType = SelectedTypeNone;
-        
-        [_allArray addObject:model];
-        
-        //存数据
-        [self setDataProcess];
-        
-        [_otherArray addObject:model];
-        
-        [self.collectionView reloadData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshHomeData object:nil];
+        return;
     }
+    
 }
 - (void)setDataProcess
 {
