@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"home";
+    self.navigationItem.title = @"首页";
     
     [self setNavigationBar];
     
@@ -81,13 +81,13 @@
 }
 
 - (void)addAction{
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"input" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"输入内容" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
     _textField = [alertView textFieldAtIndex:0];
     
-    _textField.placeholder = @"Please input";
+    _textField.placeholder = @"请输入内容";
     
     [alertView show];
 }

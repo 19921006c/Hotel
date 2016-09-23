@@ -27,9 +27,9 @@
     _index = index;
     
     if (index == 0) {
-        _label.text = @"Done:   (long press go to the next)";
+        _label.text = @"未完成:   (长按进入详情)";
     }else{
-        _label.text = @"Todo:   (long press go to the next)";
+        _label.text = @"已完成:   (长按进入详情)";
     }
 }
 @end

@@ -46,7 +46,7 @@
         
         JRoomDetailedModel *detailedModel = [[JRoomDetailedModel alloc]init];
         
-        detailedModel.content = @"Click Add Content";
+        detailedModel.content = @"点击添加一条内容";
         
         [_allArray addObject:detailedModel];
         
@@ -100,7 +100,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Input" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enable", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请输入内容" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
@@ -114,7 +114,7 @@
     
     if ((indexPath.row + 1) == _allArray.count) {//点击最后一个cell
         JRoomDetailedModel *detailedModel = [[JRoomDetailedModel alloc]init];
-        detailedModel.content = @"Click Add Content";
+        detailedModel.content = @"点击添加一条详情";
         [_allArray addObject:detailedModel];
         
         [self reloadAndSetObject];

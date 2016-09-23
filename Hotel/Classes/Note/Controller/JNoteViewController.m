@@ -46,18 +46,18 @@
         _allArray = [NSMutableArray array];
         
         JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
-        model.content = @"delete all home data";
+        model.content = @"删除'首页'所有数据";
         model.id = [NSString stringWithFormat:@"2000%@",model.content];
         [_allArray addObject:model];
         
         JRoomDetailedModel *model2 = [[JRoomDetailedModel alloc]init];
         
-        model2.content = @"delete all note data";
+        model2.content = @"删除'记事'所有数据";
         model2.id = [NSString stringWithFormat:@"2000%@",model2.content];
         [_allArray addObject:model2];
     }
     
-    self.navigationItem.title = @"note";
+    self.navigationItem.title = @"记事";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightDonw)];
     
@@ -92,48 +92,36 @@
     
     if (indexPath.row < 2) return;
     
-    JRoomDetailedModel *detailedModel = self.allArray[indexPath.row];
-    
-    JRoomModel *roomModel = [[JRoomModel alloc] init];
-    
-    roomModel.roomName = detailedModel.content;
-    roomModel.roomId = detailedModel.id;
-    
-    if (state == UIGestureRecognizerStateBegan) {
-        
-        JRoomDetailedViewController *vc = [[JRoomDetailedViewController alloc] init];
-        
-        vc.roomModel = roomModel;
-        
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        
-    }
-    
-}
-
-- (void)rightDonw{
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Add Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"编辑" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
     _textField = [alertView textFieldAtIndex:0];
     
-    _textField.placeholder = @"Please input";
+    self.model = _allArray[indexPath.row];
+    
+    _textField.text = self.model.content;
+    
+    [alertView show];
+}
+
+- (void)rightDonw{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"添加一条记事" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
+    
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    _textField = [alertView textFieldAtIndex:0];
+    
+    _textField.placeholder = @"请输入内容";
     
     [alertView show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-
-    NSLog(@"title = %@",alertView.title);
-    
-    NSLog(@"message = %@",alertView.message);
-    
     NSString *title = alertView.title;
     
-    if ([title isEqualToString:@"Add Note"]) {
+    if ([title isEqualToString:@"添加一条记事"]) {
         if (buttonIndex == alertView.firstOtherButtonIndex) {
             
             JRoomDetailedModel *model = [[JRoomDetailedModel alloc]init];
@@ -147,7 +135,7 @@
         }
     }
     
-    if ([title isEqualToString:@"Edit Note"]) {
+    if ([title isEqualToString:@"编辑"]) {
         if (buttonIndex == alertView.firstOtherButtonIndex) {
             
             self.model.content = _textField.text;
@@ -238,17 +226,17 @@
         return;
     }
     
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Edit Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enable", nil];
+    JRoomDetailedModel *detailedModel = self.allArray[indexPath.row];
     
-    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    JRoomModel *roomModel = [[JRoomModel alloc] init];
     
-    _textField = [alertView textFieldAtIndex:0];
+    roomModel.roomName = detailedModel.content;
+    roomModel.roomId = detailedModel.id;
+    JRoomDetailedViewController *vc = [[JRoomDetailedViewController alloc] init];
     
-    self.model = _allArray[indexPath.row];
+    vc.roomModel = roomModel;
     
-    _textField.text = self.model.content;
-    
-    [alertView show];
+    [self.navigationController pushViewController:vc animated:YES];
     
     
 }

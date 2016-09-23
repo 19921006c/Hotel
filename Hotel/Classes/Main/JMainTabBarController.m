@@ -24,10 +24,8 @@
     homeVc = [[JHomeViewController alloc]init];
     noteVc = [[JNoteViewController alloc]init];
     
-    [self addOneChildController:homeVc title:@"home" norImage:@"tabbar_service_normal" selectedImage:@"tabbar_service_selected"];
-    [self addOneChildController:noteVc title:@"note" norImage:@"tabbar_message_normal" selectedImage:@"tabbar_message_selected"];
-
-    // Do any additional setup after loading the view.
+    [self addOneChildController:homeVc title:@"首页" norImage:@"tabbar_service_normal" selectedImage:@"tabbar_service_selected"];
+    [self addOneChildController:noteVc title:@"记事" norImage:@"tabbar_message_normal" selectedImage:@"tabbar_message_selected"];
 }
 
 - (void)addOneChildController:(UIViewController *)childVc title:(NSString *)title norImage:(NSString *)norImage selectedImage:(NSString *)selectedImage
